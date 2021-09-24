@@ -11,7 +11,6 @@ csv_dir = local_storage_directory + 'csv/'
 
 netcdf_file_name = 'global-analysis-forecast-phy.nc'
 
-# Set variables names for the input file.nc (netcdf_file_in) and the output file.csv (`csv_file_out`)
 netcdf_file_in = netcdf_dir + netcdf_file_name
 csv_file_out = csv_dir + netcdf_file_name[:-3] + '.csv'
 
@@ -23,7 +22,6 @@ print(df)
 files_to_convert = local_storage_directory + 'netcdf/'
 print(files_to_convert)
 
-# Set a loop to create a .csv file for each .nc file listed in `files_to_convert`
 for filename in os.listdir(files_to_convert):
   ds = xr.open_dataset(files_to_convert + filename)
   df = ds.to_dataframe()
